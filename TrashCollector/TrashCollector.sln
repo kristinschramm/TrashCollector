@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrashCollector", "TrashCollector\TrashCollector.csproj", "{8C7AE06F-9813-4EC4-8C96-3B9F522D5D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrashCollector.Tests", "TrashCollector.Tests\TrashCollector.Tests.csproj", "{CD5D3E0C-6A60-44CD-9AD4-92541AF66032}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C7AE06F-9813-4EC4-8C96-3B9F522D5D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7AE06F-9813-4EC4-8C96-3B9F522D5D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7AE06F-9813-4EC4-8C96-3B9F522D5D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7AE06F-9813-4EC4-8C96-3B9F522D5D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD5D3E0C-6A60-44CD-9AD4-92541AF66032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD5D3E0C-6A60-44CD-9AD4-92541AF66032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD5D3E0C-6A60-44CD-9AD4-92541AF66032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD5D3E0C-6A60-44CD-9AD4-92541AF66032}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AED276D-50AE-4306-8364-C72AC61F5884}
+	EndGlobalSection
+EndGlobal
