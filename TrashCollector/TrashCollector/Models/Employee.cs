@@ -17,9 +17,10 @@ namespace TrashCollector.Models
         [Required]
         [StringLength(50)]
         public string LastName { get; set; }
+        public ZipCode ZipCode { get; set; }
         [Required]
         [Range(11111,99999)]
-        public int ZipCode { get; set; }
+        public int ZipCodeId { get; set; }
         [Display(Name = "Phone Number")]
         [Phone]
         [Required]

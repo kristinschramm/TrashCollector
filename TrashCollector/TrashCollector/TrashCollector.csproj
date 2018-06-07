@@ -207,6 +207,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
@@ -217,6 +218,10 @@
     <Compile Include="Migrations\201806071617299_Restart Migration.cs" />
     <Compile Include="Migrations\201806071617299_Restart Migration.Designer.cs">
       <DependentUpon>201806071617299_Restart Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806071808354_update employee columns.cs" />
+    <Compile Include="Migrations\201806071808354_update employee columns.Designer.cs">
+      <DependentUpon>201806071808354_update employee columns.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -230,7 +235,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
-    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -530,6 +535,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -550,6 +556,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806071617299_Restart Migration.resx">
       <DependentUpon>201806071617299_Restart Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806071808354_update employee columns.resx">
+      <DependentUpon>201806071808354_update employee columns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

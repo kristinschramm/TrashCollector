@@ -6,8 +6,10 @@ using TrashCollector.Models;
 
 namespace TrashCollector.ViewModels
 {
-    public class EmployeeViewModel
+    public class EmployeeFormViewModel
     {
-        public List<Employee> Employees { get; set; }
+        public Employee Employee { get; set; }
+
+        public IEnumerable<ZipCode> ZipCodes { get; set; }
     }
 }
