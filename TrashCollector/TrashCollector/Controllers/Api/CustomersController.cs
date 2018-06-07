@@ -53,11 +53,25 @@ namespace TrashCollector.Controllers.Api
         }
 
         // PUT api/customers/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customerInDb == null)
+                return NotFound();
+
+            Mapper.Map(customerDto, customerInDb);
+
+            _context.SaveChanges();
+
+            return Ok();
         }
 
         // DELETE api/customers/5
+        [HttpDelete]
         public void Delete(int id)
         {
         }
