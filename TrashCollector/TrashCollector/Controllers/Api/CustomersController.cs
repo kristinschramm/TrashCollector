@@ -26,9 +26,14 @@ namespace TrashCollector.Controllers.Api
         }
 
         // GET api/customers/5
-        public string Get(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
-            return "value";
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return NotFound();
+
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
 
         // POST api/customers
