@@ -22,6 +22,7 @@ namespace TrashCollector.Controllers.Api
         public IHttpActionResult GetCustomers()
         {
             var customerDtos = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+
             return Ok(customerDtos);
         }
 
@@ -45,6 +46,7 @@ namespace TrashCollector.Controllers.Api
             var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
 
             _context.Customers.Add(customer);
+
             _context.SaveChanges();
 
             customerDto.Id = customer.Id;
@@ -58,6 +60,7 @@ namespace TrashCollector.Controllers.Api
         {
             if (!ModelState.IsValid)
                 return BadRequest();
+
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
@@ -71,9 +74,20 @@ namespace TrashCollector.Controllers.Api
         }
 
         // DELETE api/customers/5
-        [HttpDelete]
-        public void Delete(int id)
+        [HttpDelete]       
+        public IHttpActionResult DeleteCustomer(int id)
         {
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customerInDb == null)
+                return NotFound();
+
+            _context.Customers.Remove(customerInDb);
+
+            _context.SaveChanges();
+
+            return Ok();
         }
+        
     }
 }

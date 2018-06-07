@@ -233,6 +233,10 @@
     <Compile Include="Migrations\201806051844048_AddDayToDatabase.Designer.cs">
       <DependentUpon>201806051844048_AddDayToDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806071434518_Update customer requirements.cs" />
+    <Compile Include="Migrations\201806071434518_Update customer requirements.Designer.cs">
+      <DependentUpon>201806071434518_Update customer requirements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -576,6 +580,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806051844048_AddDayToDatabase.resx">
       <DependentUpon>201806051844048_AddDayToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806071434518_Update customer requirements.resx">
+      <DependentUpon>201806071434518_Update customer requirements.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
