@@ -214,47 +214,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806051523133_IntialMigration.cs" />
-    <Compile Include="Migrations\201806051523133_IntialMigration.Designer.cs">
-      <DependentUpon>201806051523133_IntialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806051812516_AddCustomerDatabase.cs" />
-    <Compile Include="Migrations\201806051812516_AddCustomerDatabase.Designer.cs">
-      <DependentUpon>201806051812516_AddCustomerDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806051815392_UpdateStatePostalCodeLabel.cs" />
-    <Compile Include="Migrations\201806051815392_UpdateStatePostalCodeLabel.Designer.cs">
-      <DependentUpon>201806051815392_UpdateStatePostalCodeLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806051820565_InputStates.cs" />
-    <Compile Include="Migrations\201806051820565_InputStates.Designer.cs">
-      <DependentUpon>201806051820565_InputStates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806051844048_AddDayToDatabase.cs" />
-    <Compile Include="Migrations\201806051844048_AddDayToDatabase.Designer.cs">
-      <DependentUpon>201806051844048_AddDayToDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806071434518_Update customer requirements.cs" />
-    <Compile Include="Migrations\201806071434518_Update customer requirements.Designer.cs">
-      <DependentUpon>201806071434518_Update customer requirements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806071529117_Add Employee.cs" />
-    <Compile Include="Migrations\201806071529117_Add Employee.Designer.cs">
-      <DependentUpon>201806071529117_Add Employee.cs</DependentUpon>
+    <Compile Include="Migrations\201806071617299_Restart Migration.cs" />
+    <Compile Include="Migrations\201806071617299_Restart Migration.Designer.cs">
+      <DependentUpon>201806071617299_Restart Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\ZipCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -572,26 +548,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806051523133_IntialMigration.resx">
-      <DependentUpon>201806051523133_IntialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806051812516_AddCustomerDatabase.resx">
-      <DependentUpon>201806051812516_AddCustomerDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806051815392_UpdateStatePostalCodeLabel.resx">
-      <DependentUpon>201806051815392_UpdateStatePostalCodeLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806051820565_InputStates.resx">
-      <DependentUpon>201806051820565_InputStates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806051844048_AddDayToDatabase.resx">
-      <DependentUpon>201806051844048_AddDayToDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806071434518_Update customer requirements.resx">
-      <DependentUpon>201806071434518_Update customer requirements.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806071529117_Add Employee.resx">
-      <DependentUpon>201806071529117_Add Employee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806071617299_Restart Migration.resx">
+      <DependentUpon>201806071617299_Restart Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,12 +18,17 @@ namespace TrashCollector.Models
         [Required]
         [StringLength(50)]
         public string LastName { get; set; }
-        [Required]
-        public Address Address { get; set; }
         [Display(Name = "Phone Number")]
         [Phone]
         [Required]
         public string PhoneNumber { get; set; }
+        [Required]
+        public string Address { get; set; }
+        
+        public ZipCode ZipCode { get; set; }
+        [Required]
+        public int ZipCodeId { get; set; }
+
         public Day Day { get; set; }
         [Required]
         public int DayId { get; set; }

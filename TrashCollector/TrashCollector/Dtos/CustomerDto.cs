@@ -17,7 +17,9 @@ namespace TrashCollector.Dtos
         [StringLength(50)]
         public string LastName { get; set; }
         [Required]
-        public Address Address { get; set; }
+        public ZipCode ZipCode{ get; set; }
+        [Required]
+        public int ZipCodeId { get; set; }
         [Phone]
         [Required]
         public string PhoneNumber { get; set; }

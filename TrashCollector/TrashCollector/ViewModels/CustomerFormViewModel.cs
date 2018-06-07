@@ -11,6 +11,6 @@ namespace TrashCollector.ViewModels
     {
         public IEnumerable<Day> Days { get; set; }
         public Customer Customer { get; set; }
-        public IEnumerable<State> States { get; set; }
+        public IEnumerable<ZipCode> ZipCodes { get; set; }
     }
 }

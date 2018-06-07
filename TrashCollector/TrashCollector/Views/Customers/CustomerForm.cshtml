@@ -19,20 +19,13 @@
         @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Address.StreetAddress)
-        @Html.TextBoxFor(m => m.Customer.Address.StreetAddress, new { @class = "form-control" })
-    </div>
+        @Html.LabelFor(m => m.Customer.Address)
+        @Html.TextBoxFor(m => m.Customer.Address, new { @class = "form-control" })
+    </div>   
+    
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Address.SubAddress)
-        @Html.TextBoxFor(m => m.Customer.Address.SubAddress, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Address.City)
-        @Html.TextBoxFor(m => m.Customer.Address.City, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Address.StateId)
-        @Html.DropDownListFor(m => m.Customer.Address.StateId, new SelectList(Model.States, "Id", "StateName"),"Select State", new { @class = "form-group" })
+        @Html.LabelFor(m => m.Customer.ZipCode.ZipCodeId)
+        @Html.DropDownListFor(m => m.Customer.ZipCode.ZipCodeId, new SelectList(Model.ZipCodes, "ZipCodeId", "Code"),"Select ZipCode", new { @class = "form-group" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.DayId)<br />
