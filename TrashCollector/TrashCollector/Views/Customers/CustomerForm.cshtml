@@ -1,0 +1,44 @@
+﻿@model TrashCollector.ViewModels.CustomerFormViewModel
+@{
+    /**/
+
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+
+@using (Html.BeginForm("Save", "Customers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.FirstName)
+        @Html.TextBoxFor(m => m.Customer.FirstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.LastName)
+        @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Address.StreetAddress)
+        @Html.TextBoxFor(m => m.Customer.Address.StreetAddress, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Address.SubAddress)
+        @Html.TextBoxFor(m => m.Customer.Address.SubAddress, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Address.City)
+        @Html.TextBoxFor(m => m.Customer.Address.City, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Address.StateId)
+        @Html.DropDownListFor(m => m.Customer.Address.StateId, new SelectList(Model.States, "Id", "StateName"),"Select State", new { @class = "form-group" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.DayId)<br />
+        @Html.DropDownListFor(m => m.Customer.DayId, new SelectList(Model.Days, "Id", "Name"), "Select Pickup Day", new { @class = "form-group" })
+    </div>
+    
+    @Html.HiddenFor(m => m.Customer.Id)
+    <button type="submit" class="btn btn-primary"> Save </button>
+}
