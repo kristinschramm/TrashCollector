@@ -37,8 +37,19 @@ namespace TrashCollector.Controllers.Api
         }
 
         // POST api/customers
-        public void Post([FromBody]string value)
+        [HttpPost] //use to specify post method without including post in the function name
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
+
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            customerDto.Id = customer.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
         // PUT api/customers/5
