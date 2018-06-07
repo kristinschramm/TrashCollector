@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TrashCollector.Models;
-//using TrashCollector.Dtos;
+using TrashCollector.Dtos;
 using AutoMapper;
 
 namespace TrashCollector.Controllers.Api
@@ -19,9 +19,10 @@ namespace TrashCollector.Controllers.Api
             _context = new ApplicationDbContext();
         }
         // GET api/customers
-        public IEnumerable<string> Get()
+        public IHttpActionResult GetCustomers()
         {
-            return new string[] { "value1", "value2" };
+            var customerDtos = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            return Ok(customerDtos);
         }
 
         // GET api/customers/5
