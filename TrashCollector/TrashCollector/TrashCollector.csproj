@@ -237,11 +237,16 @@
     <Compile Include="Migrations\201806071434518_Update customer requirements.Designer.cs">
       <DependentUpon>201806071434518_Update customer requirements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806071529117_Add Employee.cs" />
+    <Compile Include="Migrations\201806071529117_Add Employee.Designer.cs">
+      <DependentUpon>201806071529117_Add Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\State.cs" />
@@ -583,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806071434518_Update customer requirements.resx">
       <DependentUpon>201806071434518_Update customer requirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806071529117_Add Employee.resx">
+      <DependentUpon>201806071529117_Add Employee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
