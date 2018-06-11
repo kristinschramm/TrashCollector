@@ -1,12 +1,15 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TrashCollector.Models;
 using TrashCollector.Dtos;
 using AutoMapper;
+
 
 namespace TrashCollector.Controllers.Api
 {
@@ -18,12 +21,32 @@ namespace TrashCollector.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
+        
         // GET api/customers
         public IHttpActionResult GetCustomers()
         {
-            var customerDtos = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            var customerDtos = _context.Customers                
+                 .Include(c => c.Address)
+                 .Include(c => c.ZipCode)
+                 .Include(c => c.Day)
+                 .ToList()
+                 .Select(Mapper.Map<Customer, CustomerDto>);
 
             return Ok(customerDtos);
+        }
+        public IHttpActionResult Route(int id)
+        {
+            var employeeDto = _context.Employees.SingleOrDefault(c => c.Id == id);
+            var customersDto = _context.Customers
+                .Include(c => c.Day)
+                .Include(c => c.Address)
+                .Include(c => c.ZipCode == employeeDto.ZipCode)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
+
+
+
+            return Ok(customersDto);
         }
 
         // GET api/customers/5
@@ -54,13 +77,12 @@ namespace TrashCollector.Controllers.Api
             return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
-        // PUT api/customers/5
+        //PUT /api/customers/1
         [HttpPut]
         public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
@@ -71,23 +93,20 @@ namespace TrashCollector.Controllers.Api
             _context.SaveChanges();
 
             return Ok();
+
         }
 
-        // DELETE api/customers/5
-        [HttpDelete]       
+        //DELETE  /api/customers/1
+        [HttpDelete]
         public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
                 return NotFound();
-
             _context.Customers.Remove(customerInDb);
-
             _context.SaveChanges();
-
             return Ok();
         }
-        
     }
 }

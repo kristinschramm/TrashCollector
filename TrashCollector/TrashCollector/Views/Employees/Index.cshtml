@@ -5,6 +5,8 @@
 }
 
 <h2> Employees</h2>
+<p> @Html.ActionLink("Create Employee", "EmployeeForm", "Employees", null, new { @class = "btn btn-default" })</p>
+
 
 @if (!Model.Any())
 {
@@ -16,14 +18,20 @@ else
         <thead>
             <tr>
                 <th>Employee</th>
+                <th>Route</th>
                 <th>Territory</th>
             </tr>
         </thead>
+
         <tbody>
+
+
             @foreach (var employee in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(employee.FirstName + " " + employee.LastName, "Edit", "Employee", new { id = employee.Id }, null)</td>
+                    <td>@Html.ActionLink(employee.FirstName + " " + employee.LastName, "Edit", "Employees", new { id = employee.Id }, null)</td>
+                    <td>@Html.ActionLink("Display Route", "Route", "Employees", new { id = employee.Id }, null)</td>
+
                     <td>@employee.ZipCode.Code</td>
                 </tr>
             }

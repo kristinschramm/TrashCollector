@@ -206,6 +206,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\EmployeesController.cs" />
+    <Compile Include="Controllers\Api\RoutesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -223,8 +225,37 @@
     <Compile Include="Migrations\201806071808354_update employee columns.Designer.cs">
       <DependentUpon>201806071808354_update employee columns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806072027558_update customer display name.cs" />
+    <Compile Include="Migrations\201806072027558_update customer display name.Designer.cs">
+      <DependentUpon>201806072027558_update customer display name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806072031236_add account balance to customer.cs" />
+    <Compile Include="Migrations\201806072031236_add account balance to customer.Designer.cs">
+      <DependentUpon>201806072031236_add account balance to customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806081659219_UpdateSeedUsers.cs" />
+    <Compile Include="Migrations\201806081659219_UpdateSeedUsers.Designer.cs">
+      <DependentUpon>201806081659219_UpdateSeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806101618309_add address class .cs" />
+    <Compile Include="Migrations\201806101618309_add address class .Designer.cs">
+      <DependentUpon>201806101618309_add address class .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806101717208_update customer dtos.cs" />
+    <Compile Include="Migrations\201806101717208_update customer dtos.Designer.cs">
+      <DependentUpon>201806101717208_update customer dtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806101755348_test strings in datatables.cs" />
+    <Compile Include="Migrations\201806101755348_test strings in datatables.Designer.cs">
+      <DependentUpon>201806101755348_test strings in datatables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806101830135_remove addres string.cs" />
+    <Compile Include="Migrations\201806101830135_remove addres string.Designer.cs">
+      <DependentUpon>201806101830135_remove addres string.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -234,6 +265,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeCustomerViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\EmployeeFormViewModel.cs" />
   </ItemGroup>
@@ -536,6 +568,9 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\EmployeeForm.cshtml" />
+    <Content Include="Views\Employees\Route.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -559,6 +594,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806071808354_update employee columns.resx">
       <DependentUpon>201806071808354_update employee columns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806072027558_update customer display name.resx">
+      <DependentUpon>201806072027558_update customer display name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806072031236_add account balance to customer.resx">
+      <DependentUpon>201806072031236_add account balance to customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806081659219_UpdateSeedUsers.resx">
+      <DependentUpon>201806081659219_UpdateSeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806101618309_add address class .resx">
+      <DependentUpon>201806101618309_add address class .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806101717208_update customer dtos.resx">
+      <DependentUpon>201806101717208_update customer dtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806101755348_test strings in datatables.resx">
+      <DependentUpon>201806101755348_test strings in datatables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806101830135_remove addres string.resx">
+      <DependentUpon>201806101830135_remove addres string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,6 +24,9 @@ namespace TrashCollector.Models
         public DbSet<Day> Days { get; set; }
         public DbSet<Employee> Employees {get; set;}
         public DbSet<ZipCode> ZipCodes { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

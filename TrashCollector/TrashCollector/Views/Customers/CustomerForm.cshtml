@@ -2,11 +2,11 @@
 @{
     /**/
 
-    ViewBag.Title = "New";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Customer</h2>
+<h2>Edit Customer</h2>
 
 @using (Html.BeginForm("Save", "Customers"))
 {
@@ -19,19 +19,24 @@
         @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Address)
-        @Html.TextBoxFor(m => m.Customer.Address, new { @class = "form-control" })
-    </div>   
-    
+        @Html.LabelFor(m => m.Customer.Address.AddressString)
+        @Html.TextBoxFor(m => m.Customer.Address.AddressString, new { @class = "form-control" })
+    </div>
+
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.ZipCode.ZipCodeId)
-        @Html.DropDownListFor(m => m.Customer.ZipCode.ZipCodeId, new SelectList(Model.ZipCodes, "ZipCodeId", "Code"),"Select ZipCode", new { @class = "form-group" })
+        @Html.LabelFor(m => m.Customer.ZipCodeId)
+        @Html.DropDownListFor(m => m.Customer.ZipCodeId, new SelectList(Model.ZipCodes, "ZipCodeId", "Code"), "Select ZipCode", new { @class = "form-group" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.DayId)<br />
-        @Html.DropDownListFor(m => m.Customer.DayId, new SelectList(Model.Days, "Id", "Name"), "Select Pickup Day", new { @class = "form-group" })
+        @Html.DropDownListFor(m => m.Customer.DayId, new SelectList(Model.Days, "DayId", "Name"), "Select Pickup Day", new { @class = "form-group" })
     </div>
-    
+
     @Html.HiddenFor(m => m.Customer.Id)
     <button type="submit" class="btn btn-primary"> Save </button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
 }

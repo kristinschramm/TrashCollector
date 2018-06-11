@@ -1,0 +1,108 @@
+﻿@model List<TrashCollector.Models.Customer>
+@{
+    ViewBag.Title = "Route";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Pickup Routes</h2>
+
+
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Address</th>
+            <th>Zipcode </th>
+            <th>Pickup Day</th>
+            <th>Account Balance</th>
+            <th>Completed?</th>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+
+            <tr>
+                <td>@Html.ActionLink(customer.FirstName + " " + customer.LastName, "Details", "Customer", new { id = customer.Id }, null)</td>
+                <td>@customer.Address</td>
+                <td>@customer.ZipCode.Code</td>
+                <td>@customer.Day.Name</td>
+                <td>@customer.AccountBalance</td>
+                <td>
+                    <div class="checkbox">
+                        <label>
+                            @Html.ActionLink("Charge Account", "Increase", "Customer")
+
+                        </label>
+
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+   
+
+    
+</table>
+
+@*@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.firstName + " " + customer.lastName + "</a>";
+
+                        }
+                    },
+                    {
+                        data: "address.addressString"
+
+                    },
+                    {
+                        data: "zipCode.code"
+                    },
+                    {
+                        data: "day.name"
+
+                    },
+                    {
+                        data: "accountBalance"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-complete' data-customer-id=" + data + ">Complete</button>";
+                        }
+                    }
+                ]
+            });
+
+            //$("#customers").on("click", ".js-complete", function () {
+            //    var button = $(this);
+
+            //    bootbox.confirm("Are you sure you want to complete pickup?", function (result) {
+            //        //if (result) {
+            //        //    $.ajax({
+            //        //        url: "/api/routes/" + $(this).attr("data-customer-id"),
+            //        //        method: "Complete",
+            //        //        success: function (data) {
+            //        //            customer.accountBalance += 30;// create variable
+            //        //        }
+            //        //    })
+
+            //        //}
+            //    });
+
+
+            //});
+
+        });
+    </script>
+}*@

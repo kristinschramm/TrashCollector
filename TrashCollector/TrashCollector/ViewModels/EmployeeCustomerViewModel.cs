@@ -4,10 +4,13 @@ using System.Linq;
 using System.Web;
 using TrashCollector.Models;
 
+
 namespace TrashCollector.ViewModels
 {
-    public class CustomerViewModel
+    public class EmployeeCustomerViewModel 
     {
         public IEnumerable<Customer> Customers { get; set; }
+
+       
     }
 }

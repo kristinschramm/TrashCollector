@@ -31,21 +31,48 @@ namespace TrashCollector.Controllers
                 return View(viewModel);
 
             }
-            [HttpPost]
+        public ActionResult Route(int id)
+        {
+            var employee = _context.Employees.SingleOrDefault(c => c.Id == id);
+            var customers = _context.Customers.Include(c => c.Day).Include(c=>c.ZipCode).ToList();
+            List<Customer> todaysCustomers = new List<Customer>();
+            foreach (Customer c in customers)
+            {
+                if (c.ZipCodeId == employee.ZipCodeId && c.Day.Name == DateTime.Now.DayOfWeek.ToString())
+                    todaysCustomers.Add(c);
+            }
+
+            
+            
+
+
+            return View("Route", todaysCustomers);
+        }
+
+        [HttpPost]
             public ActionResult Save(Employee employee)
             {
-                if (employee.Id == 0)
-                    return HttpNotFound();
-
-            else
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new EmployeeFormViewModel
                 {
-                    var employeeInDb = _context.Employees.Single(c => c.Id == employee.Id);
-                    //mapping
+                    Employee = employee,
+                    ZipCodes = _context.ZipCodes.ToList(),
+                };
+                return View("EmployeeForm", viewModel);
 
-                }
-                _context.SaveChanges();
+            }
+            if (employee.Id == 0)
+                _context.Employees.Add(employee);
+            else
+            {
+                var employeeInDb = _context.Employees.Single(e => e.Id == employee.Id);
+                employeeInDb.FirstName = employee.FirstName;
+                employeeInDb.LastName = employee.LastName;
+                employeeInDb.ZipCodeId = employee.ZipCodeId;
+            }
 
-                return RedirectToAction("Index", "Employees"); //fix when create roles
+            return RedirectToAction("Index", "Employees"); //fix when create roles
             }
             public ViewResult Index()
             {

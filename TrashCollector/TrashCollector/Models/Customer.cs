@@ -22,16 +22,23 @@ namespace TrashCollector.Models
         [Phone]
         [Required]
         public string PhoneNumber { get; set; }
+        public Address Address { get; set; }
         [Required]
-        public string Address { get; set; }
-        
+        [Display(Name = "Address")]
+        public int AddressId { get; set; }
+
         public ZipCode ZipCode { get; set; }
         [Required]
+        [Display(Name ="Zip Code")]
         public int ZipCodeId { get; set; }
+
 
         public Day Day { get; set; }
         [Required]
+        [Display(Name = "Pickup Day")]
         public int DayId { get; set; }
+        [Display(Name = "Account Balance")]
+        public double? AccountBalance { get; set; }
 
     }
 }
